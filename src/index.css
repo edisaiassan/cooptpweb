@@ -1,6 +1,286 @@
-@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+@import "tw-animate-css";
 @import "tailwindcss";
 
-body {
-    font-family: "Nunito", serif;
+@layer base {
+
+    body {
+        font-family: "Roboto", sans-serif;
+    }
+
+    section[id] {
+        scroll-margin-top: 100px;
+    }
+
+    /* Headline Large (Title for Landing) 4xl */
+    h1 {
+        font-size: 32px;
+        line-height: 40px;
+        letter-spacing: 0px;
+        font-weight: 400;
+        white-space: pre-wrap;
+    }
+
+    /* Subtitle for leading 3xl */
+    h2 {
+        font-size: 28px;
+        line-height: 36px;
+        letter-spacing: 0px;
+        font-weight: 400;
+        white-space: pre-wrap;
+    }
+
+    /* Title large (presentation) text-2xl*/
+    h3 {
+        font-size: 22px;
+        line-height: 28px;
+        letter-spacing: 0px;
+        font-weight: 400;
+        /* Font regular */
+        white-space: pre-wrap;
+    }
+
+    /* Title medium (Title for Card) text-xl*/
+    h4 {
+        font-size: 16px;
+        line-height: 24px;
+        letter-spacing: 0.15px;
+        font-weight: 500;
+        /* Medium */
+        white-space: pre-wrap;
+    }
+
+    /* Label Large text-lg text for buttons*/
+    h5 {
+        font-size: 14px;
+        line-height: 20px;
+        letter-spacing: 0.1px;
+        font-weight: 500;
+        /* Medium */
+        /* font-weight: 600; /* bold */
+        white-space: pre-wrap;
+    }
+
+    /* Normal and Subtitle for card */
+    p {
+        font-size: 14px;
+        line-height: 20px;
+        letter-spacing: 0.25px;
+        font-weight: 400;
+        white-space: pre-wrap;
+    }
+
+    small {
+        font-size: 12px;
+        line-height: 16px;
+        letter-spacing: 0.4px;
+        font-weight: 400;
+        white-space: pre-wrap;
+    }
+}
+
+@theme {
+    /* --text-4xl: 32px;
+    --text-3xl: 28px;
+    --text-2xl: 22px;
+    --text-xl: 16px;
+    --text-base: 16px; */
+
+    /* Breakpoint */
+    --breakpoint-xs: 320px
+}
+
+@layer utilities {
+
+    /* Backdrounds */
+    
+
+    .bg-whatsApp {
+        background-color: #25D366
+    }
+
+    .bg-primary {
+        background-color: #006F37
+    }
+
+    /* 00B85C */
+
+    .bg-primaryLite {
+        background-color: #C2FFF0
+    }
+
+    .bg-primaryHard {
+        background-color: #003D1F
+    }
+
+    .bg-secondary {
+        background-color: #CDDC39
+    }
+
+    /* #DCE775 */
+
+    .bg-secondaryLite {
+        background-color: #F0F4C3
+    }
+
+    .bg-secondaryHard {
+        background-color: #827717
+    }
+
+    .bg-tertiary {
+        background-color: #009688
+    }
+
+    /* 64AECE */
+
+    .bg-tertiaryLite {
+        background-color: #B2DFDB
+    }
+
+    .bg-tertiaryHard {
+        background-color: #004D40
+    }
+
+    .bg-outline {
+        @apply bg-gray-400
+    }
+
+    .bg-outlineLite {
+        @apply bg-gray-200
+    }
+
+    .bg-outlineHard {
+        @apply bg-gray-900
+    }
+
+    .bg-error {
+        @apply bg-red-500
+    }
+
+
+    /* Color de texto */
+    .text-primary {
+        color: #006F37
+    }
+
+    .text-primaryLite {
+        color: #C2FFF0
+    }
+
+    .text-primaryHard {
+        color: #003D1F
+    }
+
+    .text-secondary {
+        color: #875CAD
+    }
+
+    .text-secondaryLite {
+        color: #EBE4F1
+    }
+
+    .text-secondaryHard {
+        color: #1F1529
+    }
+
+    .text-tertiary {
+        color: #459EC4
+    }
+
+    .text-tertiaryLite {
+        color: #E0EFF5
+    }
+
+    .text-tertiaryHard {
+        color: #0F252F
+    }
+
+    .text-outline {
+        @apply text-gray-400;
+    }
+
+    .text-error {
+        @apply text-red-400;
+    }
+
+    /* Tamaño de texto */
+    /* Body small, texto más pequeo */
+    .text-xs {
+        font-size: 12px;
+        line-height: 16px;
+        letter-spacing: 0.4px;
+        font-weight: 400;
+    }
+
+    /* Normal Text and subtitle for card */
+    .text-base {
+        font-size: 14px;
+        line-height: 20px;
+        letter-spacing: 0.25px;
+        font-weight: 400;
+    }
+
+    /* label large (Buttons) */
+    .text-lg {
+        font-size: 14px;
+        line-height: 20px;
+        letter-spacing: 0.1px;
+        font-weight: 500;
+    }
+
+    /* Title medium (title de card y también texto como para chats) */
+    .text-xl {
+        font-size: 16px;
+        line-height: 24px;
+        letter-spacing: 0.15px;
+        font-weight: 500;
+    }
+
+    /* Title large (presentation) */
+    .text-2xl {
+        font-size: 22px;
+        line-height: 28px;
+        letter-spacing: 0px;
+        font-weight: 400;
+    }
+
+    /* Headline medium (Subtitle for landing) */
+    .text-3xl {
+        font-size: 28px;
+        line-height: 36px;
+        letter-spacing: 0px;
+        font-weight: 400;
+    }
+
+    /* Headline Large (Title for landing) */
+    .text-4xl {
+        font-size: 32px;
+        line-height: 40px;
+        letter-spacing: 0px;
+        font-weight: 400;
+    }
+
+    /* SafeArea */
+    .safeArea {
+        margin-top: env(safe-area-inset-top)
+    }
+
+}
+
+@layer components {
+
+    /* Aquí puedes agregar tus componentes personalizados */
+    .animate-fast {
+        animation-duration: 0.4s !important;
+    }
+
+    /* Duración media para animaciones */
+    .animate-medium {
+        animation-duration: 0.6s !important;
+    }
+
+    /* Duración lenta para animaciones */
+    .animate-slow {
+        animation-duration: 0.8s !important;
+    }
 }

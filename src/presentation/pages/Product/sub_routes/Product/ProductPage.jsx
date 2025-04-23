@@ -1,90 +1,186 @@
-import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
-import { db } from "../../../../../firebase";
-import { doc, onSnapshot, updateDoc } from "firebase/firestore";
-import { Extend } from "../../../../global/components/breakpoints/Extend";
-import { Modal, ModalHeader, ModalBody, ModalFooter, Button, Input, Label } from "reactstrap";
+import { useState, useEffect, useContext, useCallback } from 'react'
+import { useLocation, useNavigate, useParams } from 'react-router-dom'
+import AuthContext from '../../../context/AuthContext'
+import { MainButton } from '../../../../global/buttons/MainButton'
+import { Extend } from '../../../../global/components/breakpoints/Extend'
+import { Icon } from '../../../../global/components/Icon.jsx'
+import { YouTubeEmbed } from '@/presentation/global/components/YouTubeEmbed'
+import ProductContext from '@/presentation/pages/context/ProductContext'
+import { Toaster } from 'sonner'
+import { EditProductSection } from '@/presentation/global/section/EditProductSection'
+import OpenExternalContext from '@/presentation/pages/context/OpenExternalContext'
+import emptyProductsLottie from '../../../../../../assets/emptyProducts.json'
+import { MessageLoaded } from '@/presentation/global/components/MessageLoaded'
+import { ProductSkeleton } from '@/presentation/global/components/skeleton/ProductSkeleton'
+import { DeleteProductSection } from '@/presentation/global/section/DeleteProductSection'
+import { CarouselImage } from '@/presentation/global/components/carousel/CarouselImage'
+import { delete_forever, edit, phone, shopping_bag, videocam_off } from '@/presentation/global/constants/Icons'
+import { FindUsSection } from '@/presentation/pages/Home/sections/FindUsSection'
+
+const CLOUD_NAME = "dq9dl3jv8"
+const UPLOAD_PRESET = "presentation"
 
 export const ProductPage = () => {
-    const { id } = useParams();
-    const [product, setProduct] = useState(null);
-    const [loading, setLoading] = useState(true);
-    const [modal, setModal] = useState(false);
-    const [formData, setFormData] = useState({ name: "", price: "" });
+    const { user } = useContext(AuthContext)
+    const { getProductStream } = useContext(ProductContext)
+    const { onOpenWhatsApp, onMakeCall } = useContext(OpenExternalContext)
+    const { id } = useParams()
+    const [product, setProduct] = useState(null)
+    const [loading, setLoading] = useState(true)
+    const [error, setError] = useState(null)
+
+    const navigate = useNavigate()
 
     useEffect(() => {
-        if (!id) return;
-
-        // Referencia al documento en Firestore
-        const productRef = doc(db, "product", id);
-
-        // Escuchar cambios en tiempo real
-        const unsubscribe = onSnapshot(productRef, (docSnap) => {
-            if (docSnap.exists()) {
-                const data = { id: docSnap.id, ...docSnap.data() };
-                setProduct(data);
-                setFormData({ name: data.name, price: data.price });
+        if (!id) navigate(-1)
+        const unsubscribe = getProductStream(id, (result) => {
+            if (result.success) {
+                setProduct(result.data)
+                setLoading(false)
             } else {
-                setProduct(null);
+                setError(result.message)
+                setLoading(false)
             }
-            setLoading(false);
-        });
+        })
+        return () => unsubscribe()
+    }, [id, getProductStream])
 
-        return () => unsubscribe();
-    }, [id]);
 
-    // Manejar cambios en el formulario
-    const handleChange = (e) => {
-        setFormData({ ...formData, [e.target.name]: e.target.value });
-    };
+    /* Sheet elimninar */
+    const [openDelete, setOpenDeleteSheet] = useState(false)
+    const [animateDeleteClose, setAnimateDeleteClose] = useState(false)
 
-    // Actualizar producto en Firestore
-    const handleUpdate = async () => {
-        if (!id) return;
-        const productRef = doc(db, "product", id);
-        await updateDoc(productRef, {
-            name: formData.name,
-            price: parseFloat(formData.price)
-        });
-        setModal(false); // Cerrar modal después de actualizar
-    };
+    const onOpenDeleteSheet = useCallback(() => {
+        setAnimateDeleteClose(false)
+        setOpenDeleteSheet(true)
+    }, [])
 
-    if (loading) return <p>Cargando producto...</p>;
-    if (!product) return <p>Producto no encontrado</p>;
+    const closeDeleteSheet = useCallback(() => {
+        setAnimateDeleteClose(true)
+        setTimeout(() => {
+            setOpenDeleteSheet(false)
+        }, 400)
+    }, [])
+    /* Sheet elimninar */
 
-    return (
-        <Extend>
-            <div className='fixed right-4 top-4'>
-                <button className='bg-red-500 p-2 rounded text-white' onClick={() => setModal(true)}>Editar</button>
-            </div>
-            
-            <div className='grid grid-cols-1 gap-2 p-4 justify-center mx-auto lg:grid-cols-2'>
-                <div className='bg-green-100 w-full h-[672px] rounded-2xl'>
-                    <img className='mx-auto h-full w-full object-contain rounded-2xl'
-                        src='https://imgsrv.crunchyroll.com/cdn-cgi/image/fit=contain,format=auto,quality=85,width=480,height=720/catalog/crunchyroll/35e4ac6339f5fdcc164160a5755790cd.jpg'
-                        alt='productImage' />
+
+    /* Sheet open and close */
+    const [openEdit, setOpenEditSheet] = useState(false)
+    const [animateEditClose, setAnimateEditClose] = useState(false)
+
+    const onOpenEditSheet = useCallback(() => {
+        setAnimateEditClose(false)
+        setOpenEditSheet(true)
+    }, [])
+
+    const closeEditSheet = useCallback(() => {
+        setAnimateEditClose(true)
+        setTimeout(() => {
+            setOpenEditSheet(false)
+        }, 400)
+    }, [])
+    /* Sheet open and close */
+
+    const location = useLocation()
+
+    const onOpenWhatsAppAndMessage = async (productName = '') => {
+        await onOpenWhatsApp(`¡Hola! Estoy interesado/a en el producto "${productName}". ¿Podrías confirmarme si está disponible? Me gustaría acercarme para verlo o concretar la compra.\n${window.location.origin}${location.pathname}`)
+    }
+
+    if (loading) {
+        return <ProductSkeleton />
+    }
+
+    if (error) return <Extend modifier={`px-4 pt-18 'pb-4' flex flex-col gap-4 min-h-screen justify-center`}>
+        <MessageLoaded
+            path={emptyProductsLottie}
+            title='Error al cargar el producto'
+            description={error}
+        />
+    </Extend>
+
+    if (!product) return <Extend modifier={`px-4 pt-18 'pb-4' flex flex-col gap-4 min-h-screen justify-center`}>
+        <MessageLoaded
+            path={emptyProductsLottie}
+            title='Producto no encontrado'
+            description='Este producto ya no existe'
+        />
+    </Extend>
+
+    return <div className={user && 'pb-22'}>
+        <Extend modifier={`px-4 pt-18 pb-4 flex flex-col gap-4`}>
+            <div className='flex flex-col md:flex md:flex-row gap-2'>
+                <CarouselImage images={product.images?.map(image => image.image)} />
+                <div className='w-full md:min-h-112 h-fit md:w-[512px] p-4 bg-outlineLite rounded-2xl flex flex-col justify-between gap-2'>
+                    {product.name && <h3 className='text-2xl text-green-900 break-all overflow-hidden'>{product.id}</h3>}
+                    <div className='flex flex-col gap-2'>
+                        <div className='w-full h-[2px] bg-outline rounded-full'></div>
+                        <MainButton
+                            onClick={() => onOpenWhatsAppAndMessage(product.name)}
+                            leftIcon={<Icon path={shopping_bag} height='h-10' width='w-10' />}
+                        >
+                            ¡QUIERO ESTE PRODUCTO!
+                        </MainButton>
+                        <MainButton
+                            onClick={onMakeCall}
+                            leftIcon={<Icon path={phone} height='h-10' width='w-10' />}
+                            backgroundColor='bg-tertiary'
+                        >
+                            LLAMAR
+                        </MainButton>
+                    </div>
                 </div>
-                <div className='p-4 w-full bg-red-200'>
-                    <h3 className='text-2xl'>{product.name}</h3>
-                    <h3 className='text-2xl'>S/. {product.price}</h3>
-                </div>
             </div>
-
-            {/* Modal de edición */}
-            <Modal isOpen={modal} toggle={() => setModal(!modal)}>
-                <ModalHeader toggle={() => setModal(!modal)}>Editar Producto</ModalHeader>
-                <ModalBody>
-                    <Label>Nombre</Label>
-                    <Input type="text" name="name" value={formData.name} onChange={handleChange} />
-                    
-                    <Label className="mt-2">Precio</Label>
-                    <Input type="number" name="price" value={formData.price} onChange={handleChange} />
-                </ModalBody>
-                <ModalFooter>
-                    <Button color="primary" onClick={handleUpdate}>Guardar</Button>
-                    <Button color="secondary" onClick={() => setModal(false)}>Cancelar</Button>
-                </ModalFooter>
-            </Modal>
+            <Extend min={true} modifier='w-full rounded-2xl flex flex-col sm:flex-row gap-4 bg-secondaryLite p-4 items-center'>
+                <div className='flex flex-col bg-white w-full rounded-2xl p-4 gap-2'>
+                    <h3 className='text-primary text-center'>Descubre más a cerca de este producto</h3>
+                    <p>{product.description}</p>
+                </div>
+                {product.video && <YouTubeEmbed videoUrl={product.video} width='max-w-[640px] sm:max-w-[320px]' />}
+            </Extend>
         </Extend>
-    );
-};
+        <FindUsSection />
+        {user && <div className='fixed bottom-4 right-4 z-50 flex flex-wrap gap-2 justify-end'>
+            <MainButton
+                leftIcon={<Icon path={delete_forever} />}
+                isFab={true}
+                floating={true}
+                backgroundColor='bg-error'
+                onClick={() => onOpenDeleteSheet()}
+            >Eliminar</MainButton>
+            <MainButton
+                onClick={() => onOpenEditSheet()}
+                leftIcon={<Icon path={edit} />}
+                isFab={true}
+                floating={true}
+                backgroundColor='bg-secondary'
+            >Editar</MainButton>
+        </div>}
+        {openDelete && (
+            <DeleteProductSection
+                keyValue={animateDeleteClose}
+                id={id}
+                image={product.image}
+                images={product.images}
+                open={openDelete}
+                onOpenChange={setOpenDeleteSheet}
+                closeSheet={closeDeleteSheet}
+                productData={product}
+                animation={`animate__animated animate-fast ${animateDeleteClose ? 'animate__fadeOutDown' : 'animate__fadeInUp'
+                    }`}
+            />
+        )}
+        {openEdit && (
+            <EditProductSection
+                keyValue={animateEditClose}
+                animation={`animate__animated animate-fast ${animateEditClose ? 'animate__fadeOutDown' : 'animate__fadeInUp'
+                    }`}
+                open={openEdit}
+                onOpenChange={setOpenEditSheet}
+                closeSheet={closeEditSheet}
+                productData={product}
+            />
+        )}
+        <Toaster richColors />
+    </div>
+}

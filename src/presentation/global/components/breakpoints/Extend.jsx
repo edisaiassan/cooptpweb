@@ -1,6 +1,6 @@
-export const Extend = ({ children, min = false }) => {
+export const Extend = ({ children, min = false, modifier, id }) => {
     return (
-      <div className={`mx-auto ${min ? 'max-w-[720px]' : 'max-w-[1920px]'}`}>
+      <div className={`mx-auto ${min ? 'max-w-[768px]' : 'max-w-[1280px]'} ${modifier} w-full`} id={id}>
         {children}
       </div>
     );
