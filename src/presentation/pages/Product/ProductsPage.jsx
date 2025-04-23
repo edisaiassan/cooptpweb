@@ -54,7 +54,6 @@ export const ProductsPage = () => {
         setProducts(result.data) // Establecer los productos ordenados
       } else {
         setLoading(false)
-        console.error('Error al cargar productos:', result.message)
       }
     })
 
