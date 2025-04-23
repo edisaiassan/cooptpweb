@@ -101,7 +101,7 @@ export const LoginPage = () => {
                 <div className='flex flex-col items-center justify-center w-full md:max-w-[640px] p-4 bg-green-100 rounded-2xl shadow-2xl gap-4'>
                     <img
                         className='drop-shadow-2xl w-full max-w-[320px] h-full max-h-[320px] object-contain'
-                        src='assets/fullLogo.png'
+                        src='/fullLogo.png'
                         alt='fullLogo'
                     />
                     <form className='flex flex-col w-full items-center gap-2' onSubmit={onLogin}>
