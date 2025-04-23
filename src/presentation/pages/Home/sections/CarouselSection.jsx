@@ -5,7 +5,7 @@ export const CarouselSection = () => {
   
   const datas = [
     {
-      image: '/assets/productsCollage.png',
+      image: '/productsCollage.png',
       title: '¡LO ÚLTIMO EN TECNOLOGÍA!',
       description: 'Descubre nuestros productos más innovadores, con lo más reciente en avances tecnológicos para mejorar tu día a día.',
       titleColor: 'text-purple-900',
@@ -13,7 +13,7 @@ export const CarouselSection = () => {
       styleText: 'italic underline'
     },
     {
-      image: '/assets/productsCollage2.png',
+      image: '/productsCollage2.png',
       title: '!GARANTÍA DE UN AÑO!',
       description: 'Tu compra está protegida. Disfruta de un año completo de garantía en todos nuestros productos, porque tu tranquilidad es lo primero.',
       titleColor: 'text-blue-900',
@@ -21,7 +21,7 @@ export const CarouselSection = () => {
       styleText: 'italic underline'
     },
     {
-      image: '/assets/productsCollage3.png',
+      image: '/productsCollage3.png',
       title: 'TODO LO QUE USTED NECESITA',
       description: 'Desde lo esencial hasta lo extraordinario, contamos con una amplia gama de productos pensados para satisfacer todas sus necesidades.',
       titleColor: 'text-indigo-900',

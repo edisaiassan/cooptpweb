@@ -2,7 +2,7 @@ import { useContext, useState } from "react"
 import AuthContext from "../context/AuthContext"
 import { Extend } from "../../global/components/breakpoints/Extend"
 import Lottie from "lottie-react"
-import workingLottie from "../../../../assets/working.json"
+import workingLottie from "../../animations/working.json"
 import { MainButton } from "../../global/buttons/MainButton"
 import { Toaster, toast } from 'sonner'
 import { Icon } from "@/presentation/global/components/Icon"

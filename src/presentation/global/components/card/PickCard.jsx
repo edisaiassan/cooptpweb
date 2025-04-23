@@ -13,10 +13,10 @@ export const PickCard = ({
 
     return (
         <div className={`bg-white p-4 gap-2 rounded-2xl flex flex-col justify-center items-center border-2 border-green-600 break-words border-dashed cursor-pointer relative ${w} ${enabled ? 'cursor-pointer' : 'opacity-50 pointer-events-none'} ${url == '' && 'transition-transform duration-300 ease-in-out hover:scale-[97%] active:scale-[90%]'} break-words`}
-        onClick={enabled && url === '' ? onClick : undefined}
+            onClick={enabled && url === '' ? onClick : undefined}
         >
             <img
-                src={url == '' ? '/assets/file_present.svg' : url}
+                src={url == '' ? '/file_present.svg' : url}
                 alt='imagePicker'
                 className={`w-full ${h} rounded-2xl ${url != '' ? 'border-green-600' : 'border-gray-400'} border-2 object-contain`}
             />

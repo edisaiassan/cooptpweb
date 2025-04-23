@@ -6,10 +6,10 @@ import { CarouselImage } from '@/presentation/global/components/carousel/Carouse
 export const FindUsSection = () => {
 
     const images = [
-        '/assets/location1.jpg',
-        '/assets/location2.jpg',
-        '/assets/location3.jpg',
-        '/assets/location4.jpg',
+        '/location1.jpg',
+        '/location2.jpg',
+        '/location3.jpg',
+        '/location4.jpg',
     ]
     return (
         <div id='find' className='w-full bg-gradient-to-b from-[#875CAD] to-[#9D79BC] text-white text-center'>

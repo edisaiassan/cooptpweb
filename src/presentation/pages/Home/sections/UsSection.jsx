@@ -7,32 +7,32 @@ export const UsSection = () => {
 
   const products = [
     {
-      'image': 'assets/laptop.jpg',
+      'image': '/laptop.jpg',
       'title': 'Laptops',
       'subtitle': 'Laptops para estudios y trabajos',
     },
     {
-      'image': 'assets/electro.jpg',
+      'image': '/electro.jpg',
       'title': 'Electrodomésticos',
       'subtitle': 'Para el hogar y oficinas',
     },
     {
-      'image': 'assets/mobiles.jpg',
+      'image': '/mobiles.jpg',
       'title': 'Teléfonos',
       'subtitle': 'Teléfonos de todas las gamas',
     },
   ]
 
   const brands = [
-    'assets/brands/samsung.png',
-    'assets/brands/mabe.png',
-    'assets/brands/lenovo.png',
-    'assets/brands/oster.png',
-    'assets/brands/hp.png',
-    'assets/brands/lg.png',
-    'assets/brands/honor.png',
-    'assets/brands/indurama.png',
-    'assets/brands/epson.png',
+    '/brands/samsung.png',
+    '/brands/mabe.png',
+    '/brands/lenovo.png',
+    '/brands/oster.png',
+    '/brands/hp.png',
+    '/brands/lg.png',
+    '/brands/honor.png',
+    '/brands/indurama.png',
+    '/brands/epson.png',
   ]
 
   return (

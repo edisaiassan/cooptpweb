@@ -1,5 +1,5 @@
 import { Extend } from '@/presentation/global/components/breakpoints/Extend'
-import scheduleLottie from '../../../../../assets/schedule.json'
+import scheduleLottie from '../../../animations/schedule.json'
 import Lottie from 'lottie-react'
 
 export const ScheduleSection = () => {
