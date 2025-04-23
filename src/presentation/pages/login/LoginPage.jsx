@@ -4,12 +4,12 @@ import { Extend } from "../../global/components/breakpoints/Extend"
 import Lottie from "lottie-react"
 import workingLottie from "../../../../assets/working.json"
 import { MainButton } from "../../global/buttons/MainButton"
-import TextFormField from "@/presentation/global/components/input/textFormField"
 import { Toaster, toast } from 'sonner'
 import { Icon } from "@/presentation/global/components/Icon"
 import { CircularProgress } from "@/presentation/global/components/spinners/CircularProgress"
 import { useNavigate } from "react-router-dom"
 import { emailIcon, loginIcon, passwordIcon, visibility, visibility_off } from "@/presentation/global/constants/Icons"
+import TextFormField from "../Home/components/input/TextFormField"
 
 export const LoginPage = () => {
 
