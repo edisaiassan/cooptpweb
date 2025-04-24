@@ -38,14 +38,14 @@ export const DeleteProductSection = ({
 
             if (!deleteImagesResult.success) {
                 toast.error(deleteImagesResult.message)
-                setEnabled(false)
+                setEnabled(true)
                 return
             }
 
             const deleteFolderResult = await deleteFolders([`presentation/${id}`])
             if (!deleteFolderResult.success) {
                 toast.error(deleteFolderResult.message)
-                setEnabled(false)
+                setEnabled(true)
                 return
             }
         }
@@ -53,10 +53,10 @@ export const DeleteProductSection = ({
         const deleteProductResult = await deleteProduct(id)
         if (!deleteProductResult.success) {
             toast.error(deleteProductResult.message)
-            setEnabled(false)
+            setEnabled(true)
             return
         }
-        setEnabled(false)
+        setEnabled(true)
         navigate(-1)
         toast.success(deleteProductResult.message)
     }
