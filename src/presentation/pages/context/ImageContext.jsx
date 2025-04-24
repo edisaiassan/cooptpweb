@@ -3,9 +3,9 @@ import { createContext } from 'react'
 
 const ImageContext = createContext()
 
-const CLOUD_NAME = import.meta.env.VITE_CLOUD_NAME
-const UPLOAD_PRESET = import.meta.env.VITE_UPLOAD_PRESET
-const url = import.meta.env.VITE_URL
+const CLOUD_NAME = 'dq9dl3jv8'
+const UPLOAD_PRESET = 'presentation_presetname'
+const url = 'https://cooptpbackend.onrender.com/'
 
 export const ImageProvider = ({ children }) => {
 
