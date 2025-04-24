@@ -49,8 +49,7 @@ export const ImageProvider = ({ children }) => {
         }
     }
 
-    const deleteImages = async (ids) => {i
-        console.log(`🎉 ${ids.map((e) => e)}`)
+    const deleteImages = async (ids) => {
         try {
             await axios.post(`${url}delete-images`,
                 { id: ids },
