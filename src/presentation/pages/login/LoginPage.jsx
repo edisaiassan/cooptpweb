@@ -10,6 +10,7 @@ import { CircularProgress } from "@/presentation/global/components/spinners/Circ
 import { useNavigate } from "react-router-dom"
 import { emailIcon, loginIcon, passwordIcon, visibility, visibility_off } from "@/presentation/global/constants/Icons"
 import TextFormField from "../Home/components/input/TextFormField"
+import { IconButton } from "@/presentation/global/buttons/IconButton"
 
 export const LoginPage = () => {
 
@@ -82,9 +83,9 @@ export const LoginPage = () => {
     };
 
 
-    /* const onViewPassword = () => {
+    const onViewPassword = () => {
         setViewPassword(prev => prev = !prev)
-    } */
+    }
 
     return (
         <Extend modifier='justify-center items-center flex min-h-screen w-full p-4'>
@@ -124,10 +125,11 @@ export const LoginPage = () => {
                             onChange={(e) => setPassword(e.target.value)}
                             error={passwordError != '' && true}
                             leftIcon={<Icon path={passwordIcon} />}
+                            rightIcon={password.length > 1 && <IconButton path={viewPassword ? visibility_off : visibility} onClick={onViewPassword} />}
                         />
                         {passwordError != null && <p className='text-red-500 w-full'>{passwordError}</p>}
                         <MainButton
-                            enabled={enabled}
+                            enabled={enabled}ks
                             onClick={onLogin}
                             rightIcon={enabled ? <Icon path={loginIcon} /> : <CircularProgress />}
                         >Ingresar
