@@ -112,7 +112,7 @@ export const ProductPage = () => {
             <div className='flex flex-col md:flex md:flex-row gap-2'>
                 <CarouselImage images={product.images?.map(image => image.image)} />
                 <div className='w-full md:min-h-112 h-fit md:w-[512px] p-4 bg-outlineLite rounded-2xl flex flex-col justify-between gap-2'>
-                    {product.name && <h3 className='text-2xl text-green-900 break-all overflow-hidden'>{product.id}</h3>}
+                    {product.name && <h3 className='text-2xl text-green-900 break-all overflow-hidden'>{product.name}</h3>}
                     <div className='flex flex-col gap-2'>
                         <div className='w-full h-[2px] bg-outline rounded-full'></div>
                         <MainButton
