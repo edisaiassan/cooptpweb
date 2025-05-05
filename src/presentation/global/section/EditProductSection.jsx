@@ -246,6 +246,7 @@ export const EditProductSection = ({
                     <Extend modifier='flex flex-col gap-2' min={true}>
                         <div>
                             <TextFormField
+                                enabled={enabled}
                                 labelText='Nombre'
                                 name='name'
                                 type='text'
@@ -263,6 +264,7 @@ export const EditProductSection = ({
                         </div>
                         <div>
                             <TextFormField
+                                enabled={enabled}
                                 labelText='Descripción'
                                 name='description'
                                 type='text'
@@ -280,6 +282,7 @@ export const EditProductSection = ({
                             {productDataState.descriptionError && <p className='text-error'>{productDataState.descriptionError}</p>}
                         </div>
                         <TextFormField
+                            enabled={enabled}
                             leftIcon={<Icon path={video_library} />}
                             labelText='Video'
                             name='video'

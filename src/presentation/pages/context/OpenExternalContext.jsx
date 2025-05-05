@@ -15,8 +15,27 @@ export const OpenExternalProvider = ({ children }) => {
         window.location.href = `tel:+${phoneNumberCode}`
     }
 
+    const copyLink = async ({ message }) => {
+        if (!navigator.clipboard) {
+            return { success: false, message: 'La función de copiar no está disponible en este navegador' }
+        }
+
+        try {
+            await navigator.clipboard.writeText(message)
+            return { success: true, message: '¡Enlace copiado!' }
+        } catch (e) {
+            return { success: false, message: `Error al copiar: ${e.message}` }
+        }
+    }
+
+    const shareToWhatsApp = (message = '') => {
+        const messageValue = encodeURIComponent(message)
+        const url = `https://wa.me/?text=${messageValue}`
+        window.open(url, '_blank')
+    }
+
     return (
-        <OpenExternalContext.Provider value={{ onOpenWhatsApp, onMakeCall }}>
+        <OpenExternalContext.Provider value={{ onOpenWhatsApp, onMakeCall, copyLink, shareToWhatsApp }}>
             {children}
         </OpenExternalContext.Provider>
     )
