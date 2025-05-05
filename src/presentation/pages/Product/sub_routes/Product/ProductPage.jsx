@@ -89,7 +89,7 @@ export const ProductPage = () => {
     }
 
     const onShareCurrentProduct = async (productName = '') => {
-        await shareToWhatsApp(`He encontrado esto en la Cooperativa TP! ¿Qué te parece? "${productName}".\n${window.location.origin}${location.pathname}`)
+        await shareToWhatsApp(`¡He encontrado esto en la Cooperativa TP! ¿Qué te parece? "${productName}".\n${window.location.origin}${location.pathname}`)
     }
 
     const onCopyLink = async () => {

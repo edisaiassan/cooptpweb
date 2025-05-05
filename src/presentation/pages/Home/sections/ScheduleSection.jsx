@@ -16,7 +16,7 @@ export const ScheduleSection = () => {
           loop={true}
           autoplay={true}
         />
-        <div className='flex flex-wrap gap-2 rounded-2xl border-2 p-4 border-[#006F37] w-full justify-center'>
+        <div className='grid grid-cols-1 xs:grid-cols-2 gap-2 rounded-2xl border-2 p-4 border-[#006F37] w-full justify-center'>
           <div className='bg-orange-400 p-4 rounded-2xl bg-outlineLite'>
             <h4>Lunes</h4>
             <p>{regularSchedule}</p>

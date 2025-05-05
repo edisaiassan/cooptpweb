@@ -15,7 +15,7 @@ export const OpenExternalProvider = ({ children }) => {
         window.location.href = `tel:+${phoneNumberCode}`
     }
 
-    const copyLink = async ({ message }) => {
+    const copyLink = async (message) => {
         if (!navigator.clipboard) {
             return { success: false, message: 'La función de copiar no está disponible en este navegador' }
         }
