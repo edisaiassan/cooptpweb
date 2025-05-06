@@ -16,14 +16,12 @@ import { add, whatsApp } from '@/presentation/global/constants/Icons'
 
 export const ProductsPage = () => {
   const { onOpenWhatsApp } = useContext(OpenExternalContext)
-  const { getProductsStream } = useContext(ProductContext)
   const { user } = useContext(AuthContext)
+  const { products, loading } = useContext(ProductContext)
   const navigate = useNavigate()
   const location = useLocation()
 
-  const [loading, setLoading] = useState(true)
-  const [products, setProducts] = useState([]) // Estado para almacenar los productos
-  const [searchTerm, setSearchTerm] = useState('') // Estado para la búsqueda de productos
+  const [searchTerm, setSearchTerm] = useState('')
   const [animateClose, setAnimateClose] = useState(false)
   const [open, setOpen] = useState(false)
 
@@ -34,38 +32,17 @@ export const ProductsPage = () => {
 
   const closeSheet = useCallback(() => {
     setAnimateClose(true)
-    setTimeout(() => {
-      setOpen(false)
-    }, 400)
+    setTimeout(() => setOpen(false), 400)
   }, [])
 
-  // Obtener el término de búsqueda desde la URL
   useEffect(() => {
     const queryParams = new URLSearchParams(location.search)
     const searchQuery = queryParams.get('search')
-    setSearchTerm(searchQuery || '') // Actualiza el término de búsqueda desde la URL
+    setSearchTerm(searchQuery || '')
   }, [location.search])
 
-  // Cargar productos desde la función getProductsStream al inicio y escuchar cambios en tiempo real
-  useEffect(() => {
-    const unsubscribe = getProductsStream((result) => {
-      if (result.success) {
-        setLoading(false)
-        setProducts(result.data) // Establecer los productos ordenados
-      } else {
-        setLoading(false)
-      }
-    })
-
-    // Limpiar la suscripción cuando el componente se desmonte
-    return () => {
-      unsubscribe()
-    }
-  }, [getProductsStream])
-
-  // Filtrar productos en base al término de búsqueda
   const filteredProducts = products.filter(product =>
-    product.name.toLowerCase().includes(searchTerm.toLowerCase())
+    product.name?.toLowerCase().includes(searchTerm.toLowerCase())
   )
 
   return (
@@ -85,7 +62,7 @@ export const ProductsPage = () => {
               {filteredProducts.map(product => (
                 <GenericCard
                   key={product.id}
-                  image={product.image && product.image.image}
+                  image={product.image?.image}
                   title={product.name}
                   onClick={() => navigate(`/product/${product.id}`)}
                 />
@@ -97,7 +74,11 @@ export const ProductsPage = () => {
 
       <div className="fixed bottom-4 right-4 z-50">
         <MainButton
-          onClick={() => user != null ? onOpenSheet() : onOpenWhatsApp(aboutYourBusinessMessage)}
+          onClick={() =>
+            user != null
+              ? onOpenSheet()
+              : onOpenWhatsApp(aboutYourBusinessMessage)
+          }
           leftIcon={<Icon path={user != null ? add : whatsApp} />}
           floating={true}
           isFab={true}
