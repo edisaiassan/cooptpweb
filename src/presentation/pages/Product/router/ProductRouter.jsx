@@ -26,16 +26,20 @@ export const ProductRouter = () => {
     }
 
     const handleSearch = () => {
-        // Aquí estamos utilizando `navigate` para incluir el parámetro de búsqueda en la URL
+        const hasSearchQuery = new URLSearchParams(location.search).has('search');
+    
         if (searchText.trim()) {
-            navigate(`/product?search=${searchText}`)
+            // Si hay texto, navega con search
+            navigate(`/product?search=${searchText}`);
+        } else if (hasSearchQuery) {
+            // Si no hay texto pero la URL tenía ?search=, lo limpiamos
+            navigate('/product');
         }
-    }
+    }    
 
     const handleKeyPress = (e) => {
-        // Si el usuario presiona "Enter", se ejecuta la búsqueda
         if (e.key === 'Enter') {
-            handleSearch()
+            handleSearch();
         }
     }
 
@@ -62,14 +66,14 @@ export const ProductRouter = () => {
                                             />
                                         )}
                                         <IconButton
-                                            onClick={searchText ? handleSearch : undefined} // Llamamos a handleSearch al hacer clic en el ícono de búsqueda
+                                            onClick={handleSearch} // Llamamos a handleSearch al hacer clic en el ícono de búsqueda
                                             path={search}
                                             background='bg-transparent'
                                         />
                                     </>
                                 }
                                 onChange={onChange} // Actualizamos el valor del input cuando cambia
-                                onKeyPress={handleKeyPress} // Ejecuta la búsqueda cuando presionamos Enter
+                                onKeyDown={handleKeyPress} // Ejecuta la búsqueda cuando presionamos Enter
                             />
                         </div>
                         <div className='hidden sm:block'></div>

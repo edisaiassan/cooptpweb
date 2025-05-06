@@ -55,7 +55,7 @@ export const FindUsSection = () => {
             </MapContainer>
           </div>
 
-          <CarouselImage images={images} background='bg-black' />
+          {/* <CarouselImage images={images} background='bg-black' /> */}
         </div>
       </Extend>
     </div>

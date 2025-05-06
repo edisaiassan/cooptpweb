@@ -11,6 +11,14 @@ export const OpenExternalProvider = ({ children }) => {
         window.open(url, '_blank')
     }
 
+    const onOpenExternal = (link = '') => {
+        //=== si es solo null, == si es null o undefined
+        if (link === '' || link == null) {
+            return { message: 'No se brindado ningún enlace' }
+        }
+        window.open(link)
+    }
+
     const onMakeCall = () => {
         window.location.href = `tel:+${phoneNumberCode}`
     }
@@ -35,7 +43,7 @@ export const OpenExternalProvider = ({ children }) => {
     }
 
     return (
-        <OpenExternalContext.Provider value={{ onOpenWhatsApp, onMakeCall, copyLink, shareToWhatsApp }}>
+        <OpenExternalContext.Provider value={{ onOpenWhatsApp, onMakeCall, copyLink, shareToWhatsApp, onOpenExternal }}>
             {children}
         </OpenExternalContext.Provider>
     )

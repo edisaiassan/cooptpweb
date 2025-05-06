@@ -17,6 +17,7 @@ export default function TextFormField({
     error = false,
     autoComplete = false,
     multiline = false,
+    onKeyDown,
     styles = {
         focusBackgroundColor: 'focus-within:bg-green-100',
         focusBackgroundLabelColor: 'peer-focus:bg-green-100',
@@ -103,6 +104,7 @@ focus:outline-none focus:ring-0 peer rounded-2xl`}
                         disabled={!enabled}
                         autoComplete={autoComplete ? 'on' : 'off'}
                         style={{ minHeight: '48px' }}  // Ajusta este valor según tus necesidades
+                        onKeyDown={onKeyDown}
                     />
 
                 ) : (
@@ -119,6 +121,7 @@ focus:outline-none focus:ring-0 peer rounded-2xl`}
                         onChange={handleChange}
                         disabled={!enabled}
                         autoComplete={autoComplete ? 'on' : 'off'}
+                        onKeyDown={onKeyDown}
                     />
                 )}
                 <label
