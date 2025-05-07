@@ -44,18 +44,42 @@ export const HomePage = () => {
           titlePosition='justify-center md:justify-end'
           title={
             <div className='gap-2 text-xl flex px-4'>
-              <Link to='home' smooth={true} duration={400} offset={-56} className='transition-transform duration-300 ease-in-out hover:scale-[95%] active:scale-[90%] cursor-pointer'
+              <Link to='home'
+                smooth={true}
+                duration={400}
+                offset={-56}
+                className='transition-transform duration-300 ease-in-out hover:scale-[95%] active:scale-[90%] cursor-pointer'
               >Inicio</Link>
               <a className='transition-transform duration-300 ease-in-out hover:scale-[95%] active:scale-[90%] cursor-pointer' href='' onClick={onGoProducts}>Productos</a>
-              <Link to='us' smooth={true} duration={400} offset={-56} className='transition-transform duration-300 ease-in-out hover:scale-[95%] active:scale-[90%] cursor-pointer'
+              <Link to='us'
+                smooth={true}
+                duration={400}
+                offset={-56}
+                className='transition-transform duration-300 ease-in-out hover:scale-[95%] active:scale-[90%] cursor-pointer'
               >Nosotros</Link>
-              <Link to='contact' smooth={true} duration={400} offset={-56} className='transition-transform duration-300 ease-in-out hover:scale-[95%] active:scale-[90%] cursor-pointer'
+              <Link to='contact'
+                smooth={true}
+                duration={400}
+                offset={-56}
+                className='transition-transform duration-300 ease-in-out hover:scale-[95%] active:scale-[90%] cursor-pointer'
               >Contáctanos</Link>
-              <Link to='find' smooth={true} duration={400} offset={-56} className='transition-transform duration-300 ease-in-out hover:scale-[95%] active:scale-[90%] cursor-pointer'
+              <Link to='find'
+                smooth={true}
+                duration={400}
+                offset={-56}
+                className='transition-transform duration-300 ease-in-out hover:scale-[95%] active:scale-[90%] cursor-pointer'
               >Ubícanos</Link>
-              <Link to='advisor' smooth={true} duration={400} offset={-56} className='transition-transform duration-300 ease-in-out hover:scale-[95%] active:scale-[90%] cursor-pointer'
+              <Link to='advisor'
+                smooth={true}
+                duration={400}
+                offset={-56}
+                className='transition-transform duration-300 ease-in-out hover:scale-[95%] active:scale-[90%] cursor-pointer'
               >Asesores</Link>
-              <Link to='schedule' smooth={true} duration={400} offset={-56} className='transition-transform duration-300 ease-in-out hover:scale-[95%] active:scale-[90%] cursor-pointer'
+              <Link to='schedule'
+                smooth={true}
+                duration={400}
+                offset={-56}
+                className='transition-transform duration-300 ease-in-out hover:scale-[95%] active:scale-[90%] cursor-pointer'
               >Horarios</Link>
             </div>
           }

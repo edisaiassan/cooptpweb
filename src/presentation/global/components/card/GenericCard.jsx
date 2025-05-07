@@ -19,14 +19,14 @@ export const GenericCard = ({
                 className='w-full h-64 object-cover rounded-2xl'
             />
             <div className='pt-2 flex flex-col'>
-                {title && <h4>{title}</h4>}
+                {title && <h4 className='line-clamp-2'>{title}</h4>}
                 {
                     subtitle &&
-                    <p className={`${mainColor}`}>{subtitle}</p>
+                    <p className={`${mainColor} line-clamp-2`}>{subtitle}</p>
                 }
                 {
                     description &&
-                    <p className='text-outline'>{description}</p>
+                    <p className='text-outline line-clamp-2'>{description}</p>
                 }
                 {
                     actions &&
