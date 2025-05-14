@@ -1,94 +1,66 @@
+import { Icon } from "@/presentation/global/components/Icon"
 import { Extend } from "../../../global/components/breakpoints/Extend"
-import { GenericCard } from "../../../global/components/card/GenericCard"
-import { YouTubeEmbed } from '../../../global/components/YouTubeEmbed'
-import { ScrollArea, ScrollBar } from '@/components/ui/scroll-area'
+import { arrow_right } from "@/presentation/global/constants/Icons"
+import { useNavigate } from "react-router-dom"
 
 export const UsSection = () => {
 
+  const navigate = useNavigate()
+
+  const onProducts = () => {
+    navigate('/product')
+  }
+
   const products = [
     {
-      'image': '/laptop.jpg',
+      'image': '/laptop.png',
       'title': 'Laptops',
+      'gradient': 'bg-gradient-to-b from-green-400 to-green-500',
       'subtitle': 'Laptops para estudios y trabajos',
     },
     {
-      'image': '/electro.jpg',
+      'image': '/electro.png',
       'title': 'Electrodomésticos',
+      'gradient': 'bg-gradient-to-b from-orange-400 to-orange-500',
       'subtitle': 'Para el hogar y oficinas',
     },
     {
-      'image': '/mobiles.jpg',
+      'image': '/mobiles.png',
       'title': 'Teléfonos',
+      'gradient': 'bg-gradient-to-b from-indigo-400 to-indigo-500',
       'subtitle': 'Teléfonos de todas las gamas',
     },
   ]
 
-  const brands = [
-    '/brands/samsung.png',
-    '/brands/mabe.png',
-    '/brands/lenovo.png',
-    '/brands/oster.png',
-    '/brands/hp.png',
-    '/brands/lg.png',
-    '/brands/honor.png',
-    '/brands/indurama.png',
-    '/brands/epson.png',
-  ]
-
   return (
-    <div id='us' className='w-full bg-gradient-to-b from-[#009688] to-[#4DB6AC]'>
-      <Extend modifier='flex flex-col sm:flex-row gap-4 w-full py-8 px-4'>
-        <div className='w-full sm:max-w-[632px] flex flex-col items-center gap-2'>
-          <div className='text-center text-white gap-2 flex flex-col'>
-            <h3>Somos una cooperativa de productos a crédito</h3>
-            <p>Contamos con el respaldo de la UGEL</p>
-          </div>
-          <YouTubeEmbed videoUrl='https://youtube.com/shorts/E9UDMG2qpUQ?si=DAWPFoUFWxyi-dQW' />
-        </div>
-        <div className='flex justify-center w-full'>
-          <div className='grid grid-cols-1 xl:grid-cols-2 justify-center items-center mx-auto gap-2'>
-            {products.map((product, index) => ( 
+    <div id='us' className='w-full bg-gradient-to-b from-purple-100 to-purple-200'>
+      <Extend modifier='px-4 py-8 flex flex-col gap-4'>
+        <h3>Todo lo que buscas <h2 className='text-purple-900'>¡LO TENEMOS AQUÍ!</h2></h3>
+        <div className='grid grid-cols-1 gap-2 sm:grid-cols-2 md:grid-cols-3 rounde'>
+          {
+            products.map((product, index) => (
               <div key={index}>
-                <GenericCard
-                  image={product.image}
-                  title={product.title}
-                  subtitle={product.subtitle}
-                  opaqueColor='bg-white'
-                />
-              </div>
-            ))}
-          </div>
-        </div>
-      </Extend>
-      <div className='px-4 pb-8'>
-        <Extend
-          modifier='bg-black p-4 text-white flex flex-col items-center justify-center rounded-2xl gap-4'
-        >
-          <h3 className='text-center'>
-            Marcas que confían en nosotros
-          </h3>
-          <div className='bg-white w-full rounded-2xl text-black'>
-            <ScrollArea className='min-w-full overflow-x-auto'>
-              <ul className='w-full justify-center flex'>
-                <div className='flex gap-2'>
-                  {
-                    brands.map((brand, index) => (
-                      <img
-                        key={index}
-                        className='p-4 object-contain h-40 w-40'
-                        src={brand}
-                        alt={`image${index}`} />
-                    )
-                    )
-                  }
+                <div className='flex flex-col items-center'>
+                  <img
+                    className='mb-[-48px] drop-shadow-lg w-full max-w-64 h-64 object-contain'
+                    src={product.image} alt={`${index}product`} />
+                  <div className={`${product.gradient} rounded-2xl pt-12 px-4 pb-8 shadow-lg w-full text-center text-white`}>
+                    <h3>{product.title}</h3>
+                    <h4>{product.subtitle}</h4>
+                  </div>
                 </div>
-
-              </ul>
-              <ScrollBar orientation="horizontal" className='px-4' />
-            </ScrollArea>
-          </div>
+              </div>
+            ))
+          }
+        </div>
+        <Extend min={true} modifier='w-full bg-white rounded-2xl p-4 flex gap-2 border-2 border-gray-400 shadow-2xl items-center transition-transform duration-300 ease-in-out hover:scale-[97%] active:scale-[90%] break-words cursor-pointer'
+        onClick={onProducts}
+        >
+          <img className='w-full max-w-10 h-10 object-contain' src='/3dSearch.png' alt='3dSeacrh' />
+          <h4 className='w-full'>Descubre más productos tocando aquí</h4>
+          <Icon path={arrow_right} height='h-10' width='w-10' />
         </Extend>
-      </div>
+      </Extend>
     </div>
 
   )

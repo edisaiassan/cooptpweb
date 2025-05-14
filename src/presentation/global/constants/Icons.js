@@ -49,3 +49,5 @@ export const videocam_off = 'm9.99 8.57-2-2-4.15-4.14-1.41 1.41 2.73 2.73h-.73c-
 export const video_library = 'M4 6H2v14c0 1.1.9 2 2 2h14v-2H4V6Zm16-4H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2Zm0 14H8V4h12v12ZM12 5.5v9l6-4.5-6-4.5Z'
 
 export const linkCopy = 'M16.5 1h-12c-1.1 0-2 .9-2 2v14h2V3h12V1Zm3 4h-11c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2Zm0 16h-11V7h11v14Z'
+
+export const facebook = 'M14 6h3a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1h-3a5 5 0 0 0-5 5v3H7a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h2v7a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1v-7h2.22a1 1 0 0 0 1-.76l.5-2a1 1 0 0 0-1-1.24H13V7a1 1 0 0 1 1-1Z'

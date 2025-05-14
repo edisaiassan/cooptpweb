@@ -2,8 +2,8 @@ import React, { useCallback, useEffect, useState, useImperativeHandle, forwardRe
 import useEmblaCarousel from 'embla-carousel-react'
 
 export const PageView = forwardRef(
-  ({ children, h, w = 'w-full', className, loop = false, auto = false, duration = 3000 }, ref) => {
-    const [viewportRef, embla] = useEmblaCarousel({ loop, skipSnaps: false })
+  ({ children, h, w = 'w-full', className, loop = false, auto = false, duration = 3000, draggable = true }, ref) => {
+    const [viewportRef, embla] = useEmblaCarousel({ loop, skipSnaps: false, active: draggable })
     const [selectedIndex, setSelectedIndex] = useState(0)
     const intervalRef = useRef(null)
 

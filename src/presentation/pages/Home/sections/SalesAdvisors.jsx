@@ -20,7 +20,7 @@ export const SalesAdvisors = () => {
 
     return (
         <Extend id='advisor' modifier='py-8 px-4 flex flex-col gap-4' min={true}>
-            <h3 className='text-center'>ASESORES DE VENTA</h3>
+            <h3 className='text-center text-primary'>ASESORES DE VENTA</h3>
             <ul className='flex flex-col gap-2 p-4 rounded-2xl border-2 border-[#006F37] h-64'>
                 {salesAdvisors.map((saleAdvisor, index) => (
                     <div key={index} className='flex gap-2 items-center bg-outlineLite py-2 px-4 rounded-2xl'> {/* Añadí items-center para alinear verticalmente */}

@@ -12,7 +12,9 @@ export const MainCarousel = ({
   liteColor = 'bg-primaryLite',
   loop = false,
   auto = false,
-  duration = 3000
+  duration = 3000,
+  draggable = true,
+  onIndexChange,
 }) => {
   const pageViewRef = useRef();
   const [selectedIndex, setSelectedIndex] = useState(0);
@@ -21,9 +23,12 @@ export const MainCarousel = ({
 
   const updateControls = () => {
     if (!pageViewRef.current) return;
+    const index = pageViewRef.current.selectedIndex
+    setSelectedIndex(index)
     setSelectedIndex(pageViewRef.current.selectedIndex)
     setCanPrev(pageViewRef.current.canScrollPrev)
     setCanNext(pageViewRef.current.canScrollNext)
+    onIndexChange?.(index)
   };
 
   useEffect(() => {
@@ -33,7 +38,7 @@ export const MainCarousel = ({
 
   return (
     <div className="w-full relative">
-      <PageView ref={pageViewRef} h={h} w={w} className={className} loop={loop} auto={auto} duration={duration}>
+      <PageView ref={pageViewRef} h={h} w={w} className={className} loop={loop} auto={auto} duration={duration} draggable={draggable}>
         {children}
       </PageView>
 

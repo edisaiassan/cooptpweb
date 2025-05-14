@@ -14,9 +14,9 @@ export const HomeSection = () => {
         <Extend id='home'>
             <div className='md:grid md:grid-cols-2 items-center'>
                 <div className='flex flex-col justify-center p-4 gap-4'>
-                    <h1>
-                        LOS MEJORES PRODUCTOS A LOS MEJORES PRECIOS
-                    </h1>
+                    <h3>
+                        LOS MEJORES PRODUCTOS A <h2 className='text-primary'>¡LOS MEJORES PRECIOS!</h2>
+                    </h3>
                     <p>
                         Somos una cooperativa comprometida con ofrecer tecnología de calidad al por menor, a través de convenios estratégicos con instituciones como la UGEL y la Policía Nacional del Perú (PNP). Nos especializamos en la venta de equipos informáticos, motores acuáticos y más, brindando soluciones innovadoras y accesibles para satisfacer las necesidades de nuestros clientes. Con nosotros, encuentras lo que necesitas, cuando lo necesitas. ¡Tu aliado tecnológico confiable!
                     </p>
@@ -24,11 +24,11 @@ export const HomeSection = () => {
                         <MainButton onClick={onGoProduct}>Ver todos los productos</MainButton>
                     </div>
                 </div>
-                <div className='relative w-full max-w-[512px] h-[400px] mx-auto flex items-center justify-center px-4 p-4 drop-shadow-2xl'>
+                <div className='relative w-full max-w-[512px] h-[400px] mx-auto flex items-center justify-center px-4 p-4'>
                     <img
                         src='/fullLogo.png'
                         alt='Imagen'
-                        className='min-w-full h-full object-contain'
+                        className='min-w-full h-full object-contain drop-shadow-2xl'
                     />
                 </div>
             </div>

@@ -15,12 +15,13 @@ import { Link } from 'react-scroll'
 import { TopBarSection } from '@/presentation/global/sections/TopBarSection'
 import { CarouselSection } from './sections/CarouselSection'
 import { ScheduleSection } from './sections/ScheduleSection'
-import { whatsApp, logoutIcon, account_circle } from '@/presentation/global/constants/Icons'
+import { whatsApp, logoutIcon, account_circle, facebook } from '@/presentation/global/constants/Icons'
 import { SalesAdvisors } from './sections/SalesAdvisors'
+import { BrandsSection } from './sections/BrandsSection'
 
 export const HomePage = () => {
   const navigate = useNavigate()
-  const { onOpenWhatsApp } = useContext(OpenExternalContext)
+  const { onOpenWhatsApp, onOpenExternal } = useContext(OpenExternalContext)
 
   const { user, logout } = useContext(AuthContext)
 
@@ -37,8 +38,15 @@ export const HomePage = () => {
     toast.success('Se ha cerrado la sesión')
   }
 
+  const onOpenWebPage = (link) => {
+    const result = onOpenExternal(link)
+    if (result.message) {
+      toast.error(result.message)
+    }
+  }
+
   return (
-    <>
+    <div className='pb-22'>
       <div className='fixed top-0 left-0 w-full z-50'>
         <TopBarSection
           titlePosition='justify-center md:justify-end'
@@ -92,6 +100,7 @@ export const HomePage = () => {
         />
       </div >
       <CarouselSection />
+      <BrandsSection />
       <HomeSection />
       <UsSection />
       <ContactUsSection />
@@ -99,15 +108,24 @@ export const HomePage = () => {
       <SalesAdvisors />
       <ScheduleSection />
       <div className='fixed bottom-4 right-4 z-50'>
-        <MainButton
-          onClick={() => onOpenWhatsApp(aboutYourBusinessMessage)}
-          floating={true}
-          isFab={true}
-          leftIcon={<Icon path={whatsApp} />}
-          backgroundColor='bg-whatsApp'
-        >Whats App</MainButton>
+        <div className='flex flex-wrap gap-2 justify-end'>
+          <MainButton
+            onClick={() => onOpenWebPage('https://www.facebook.com/profile.php?id=61575241192648')}
+            floating={true}
+            isFab={true}
+            leftIcon={<Icon path={facebook} />}
+            backgroundColor='bg-blue-500'
+          >Facebook</MainButton>
+          <MainButton
+            onClick={() => onOpenWhatsApp(aboutYourBusinessMessage)}
+            floating={true}
+            isFab={true}
+            leftIcon={<Icon path={whatsApp} />}
+            backgroundColor='bg-whatsApp'
+          >Whats App</MainButton>
+        </div>
       </div>
       <Toaster richColors />
-    </>
+    </div>
   )
 }

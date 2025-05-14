@@ -124,7 +124,7 @@ export const ProductPage = () => {
     return <div className={user && 'pb-22'}>
         <Extend modifier={`px-4 pt-18 pb-4 flex flex-col gap-4`}>
             <div className='flex flex-col md:flex md:flex-row gap-2'>
-                <CarouselImage images={product.images?.map(image => image.image)} />
+                <CarouselImage images={product.images?.map(image => image.image)} zoom={true}/>
                 <div className='w-full md:min-h-112 h-fit md:w-[512px] p-4 bg-outlineLite rounded-2xl flex flex-col justify-between gap-2'>
                     <div className='flex flex-col gap-2'>
                         <div className='flex flex-wrap justify-end items-center gap-2'>
