@@ -46,6 +46,8 @@ export const HomePage = () => {
     }
   }
 
+  const doubleDot25 = 0.25
+
   return (
     <>
       <Fade triggerOnce className='fixed bottom-4 right-4 z-2'>
@@ -119,26 +121,26 @@ export const HomePage = () => {
             }
           />
         </div >
-        <Fade triggerOnce fraction={0.25}>
+        <Fade triggerOnce fraction={doubleDot25}>
           <CarouselSection />
         </Fade>
-        <Fade triggerOnce fraction={0.5} delay={200}>
+        <Fade triggerOnce fraction={doubleDot25} delay={200}>
           <BrandsSection />
         </Fade>
-        <Fade triggerOnce fraction={0.5} delay={200}>
+        <Fade triggerOnce fraction={doubleDot25} delay={200}>
           <HomeSection />
         </Fade>
-        <Fade triggerOnce fraction={0.75} delay={400}>
+        <Fade triggerOnce fraction={doubleDot25} delay={400}>
           <UsSection />
         </Fade>
-        <Fade triggerOnce fraction={0.25} delay={200}>
+        <Fade triggerOnce fraction={doubleDot25} delay={200}>
           <ContactUsSection />
         </Fade>
         <FindUsSection />
-        <Slide fraction={0.75} triggerOnce>
+        <Slide fraction={doubleDot25} triggerOnce>
           <SalesAdvisors />
         </Slide>
-        <Fade fraction={0.5} triggerOnce>
+        <Fade fraction={doubleDot25} triggerOnce>
           <ScheduleSection />
         </Fade>
         <Toaster richColors />
