@@ -14,7 +14,7 @@ export const CarouselSection = () => {
     },
     {
       image: '/productsCollage2.png',
-      title: '!GARANTÍA DE UN AÑO!',
+      title: '¡GARANTÍA DE UN AÑO!',
       description: 'Tu compra está protegida. Disfruta de un año completo de garantía en todos nuestros productos, porque tu tranquilidad es lo primero.',
       titleColor: 'text-blue-900',
       color: 'bg-gradient-to-b from-blue-100 to-blue-400',

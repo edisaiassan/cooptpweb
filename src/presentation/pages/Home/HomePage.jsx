@@ -18,6 +18,7 @@ import { ScheduleSection } from './sections/ScheduleSection'
 import { whatsApp, logoutIcon, account_circle, facebook } from '@/presentation/global/constants/Icons'
 import { SalesAdvisors } from './sections/SalesAdvisors'
 import { BrandsSection } from './sections/BrandsSection'
+import { Fade, Slide } from 'react-awesome-reveal'
 
 export const HomePage = () => {
   const navigate = useNavigate()
@@ -46,68 +47,8 @@ export const HomePage = () => {
   }
 
   return (
-    <div className='pb-22'>
-      <div className='fixed top-0 left-0 w-full z-50'>
-        <TopBarSection
-          titlePosition='justify-center md:justify-end'
-          title={
-            <div className='gap-2 text-xl flex px-4'>
-              <Link to='home'
-                smooth={true}
-                duration={400}
-                offset={-56}
-                className='transition-transform duration-300 ease-in-out hover:scale-[95%] active:scale-[90%] cursor-pointer'
-              >Inicio</Link>
-              <a className='transition-transform duration-300 ease-in-out hover:scale-[95%] active:scale-[90%] cursor-pointer' href='' onClick={onGoProducts}>Productos</a>
-              <Link to='us'
-                smooth={true}
-                duration={400}
-                offset={-56}
-                className='transition-transform duration-300 ease-in-out hover:scale-[95%] active:scale-[90%] cursor-pointer'
-              >Nosotros</Link>
-              <Link to='contact'
-                smooth={true}
-                duration={400}
-                offset={-56}
-                className='transition-transform duration-300 ease-in-out hover:scale-[95%] active:scale-[90%] cursor-pointer'
-              >Contáctanos</Link>
-              <Link to='find'
-                smooth={true}
-                duration={400}
-                offset={-56}
-                className='transition-transform duration-300 ease-in-out hover:scale-[95%] active:scale-[90%] cursor-pointer'
-              >Ubícanos</Link>
-              <Link to='advisor'
-                smooth={true}
-                duration={400}
-                offset={-56}
-                className='transition-transform duration-300 ease-in-out hover:scale-[95%] active:scale-[90%] cursor-pointer'
-              >Asesores</Link>
-              <Link to='schedule'
-                smooth={true}
-                duration={400}
-                offset={-56}
-                className='transition-transform duration-300 ease-in-out hover:scale-[95%] active:scale-[90%] cursor-pointer'
-              >Horarios</Link>
-            </div>
-          }
-          actions={
-            <IconButton
-              path={user == null ? account_circle : `${logoutIcon}`}
-              onClick={user != null ? onCloseSesion : onGoLogin}
-            />
-          }
-        />
-      </div >
-      <CarouselSection />
-      <BrandsSection />
-      <HomeSection />
-      <UsSection />
-      <ContactUsSection />
-      <FindUsSection />
-      <SalesAdvisors />
-      <ScheduleSection />
-      <div className='fixed bottom-4 right-4 z-50'>
+    <>
+      <Fade triggerOnce className='fixed bottom-4 right-4 z-2'>
         <div className='flex flex-wrap gap-2 justify-end'>
           <MainButton
             onClick={() => onOpenWebPage('https://www.facebook.com/profile.php?id=61575241192648')}
@@ -124,8 +65,84 @@ export const HomePage = () => {
             backgroundColor='bg-whatsApp'
           >Whats App</MainButton>
         </div>
+      </Fade>
+      <div className='pb-22'>
+        <div className='fixed top-0 left-0 w-full z-50'>
+          <TopBarSection
+            titlePosition='justify-center md:justify-end'
+            title={
+              <div className='gap-2 text-xl flex px-4'>
+                <Link to='home'
+                  smooth={true}
+                  duration={400}
+                  offset={-56}
+                  className='transition-transform duration-300 ease-in-out hover:scale-[95%] active:scale-[90%] cursor-pointer'
+                >Inicio</Link>
+                <a className='transition-transform duration-300 ease-in-out hover:scale-[95%] active:scale-[90%] cursor-pointer' href='' onClick={onGoProducts}>Productos</a>
+                <Link to='us'
+                  smooth={true}
+                  duration={400}
+                  offset={-56}
+                  className='transition-transform duration-300 ease-in-out hover:scale-[95%] active:scale-[90%] cursor-pointer'
+                >Nosotros</Link>
+                <Link to='contact'
+                  smooth={true}
+                  duration={400}
+                  offset={-56}
+                  className='transition-transform duration-300 ease-in-out hover:scale-[95%] active:scale-[90%] cursor-pointer'
+                >Contáctanos</Link>
+                <Link to='find'
+                  smooth={true}
+                  duration={400}
+                  offset={-56}
+                  className='transition-transform duration-300 ease-in-out hover:scale-[95%] active:scale-[90%] cursor-pointer'
+                >Ubícanos</Link>
+                <Link to='advisor'
+                  smooth={true}
+                  duration={400}
+                  offset={-56}
+                  className='transition-transform duration-300 ease-in-out hover:scale-[95%] active:scale-[90%] cursor-pointer'
+                >Asesores</Link>
+                <Link to='schedule'
+                  smooth={true}
+                  duration={400}
+                  offset={-56}
+                  className='transition-transform duration-300 ease-in-out hover:scale-[95%] active:scale-[90%] cursor-pointer'
+                >Horarios</Link>
+              </div>
+            }
+            actions={
+              <IconButton
+                path={user == null ? account_circle : `${logoutIcon}`}
+                onClick={user != null ? onCloseSesion : onGoLogin}
+              />
+            }
+          />
+        </div >
+        <Fade triggerOnce fraction={0.25}>
+          <CarouselSection />
+        </Fade>
+        <Fade triggerOnce fraction={0.5} delay={200}>
+          <BrandsSection />
+        </Fade>
+        <Fade triggerOnce fraction={0.5} delay={200}>
+          <HomeSection />
+        </Fade>
+        <Fade triggerOnce fraction={0.75} delay={400}>
+          <UsSection />
+        </Fade>
+        <Fade triggerOnce fraction={0.25} delay={200}>
+          <ContactUsSection />
+        </Fade>
+        <FindUsSection />
+        <Slide fraction={0.75} triggerOnce>
+          <SalesAdvisors />
+        </Slide>
+        <Fade fraction={0.5} triggerOnce>
+          <ScheduleSection />
+        </Fade>
+        <Toaster richColors />
       </div>
-      <Toaster richColors />
-    </div>
+    </>
   )
 }
