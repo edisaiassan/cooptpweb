@@ -14,23 +14,20 @@ export const CarouselImage = ({ images, background = 'bg-primaryLite', zoom = tr
 
     return (
         <>
-        <div className='absolute bottom-0 left-0 right-0 bg-red-500 z-10'>{`abdshbdhbds ${dragEnabled}`}</div>
-        <MainCarousel
-            h="h-112"
-            w="w-full"
-            className={`${background} border-2 border-[#006F37] rounded-2xl overflow-hidden`}
-            draggable={dragEnabled} // ✅ pasa el estado como prop
-        >
-            {images?.length > 0 ? images.map((image, index) => (
-                zoom
-                    ? <ZoomableImage key={index} src={image} alt={`Slide ${index}`} onZoomDragToggle={handleZoomDragToggle} />
-                    : <img key={index} src={image} alt={`Slide ${index}`} className='h-full w-full object-contain' />
-            )) : (
-                <div className='flex items-center justify-center h-full w-full'>
-                    <Icon path={image_not_supported} width='w-full max-w-32' height='h-32' />
-                </div>
-            )}
-        </MainCarousel>
+            <MainCarousel
+                h="h-112"
+                w="w-full"
+                className={`${background} border-2 border-[#006F37] rounded-2xl overflow-hidden`}
+                draggable={false} // ✅ pasa el estado como prop
+            >
+                {images?.length > 0 ? images.map((image, index) => (
+                    <img key={index} src={image} alt={`Slide ${index}`} className='h-full w-full object-contain' />
+                )) : (
+                    <div className='flex items-center justify-center h-full w-full'>
+                        <Icon path={image_not_supported} width='w-full max-w-32' height='h-32' />
+                    </div>
+                )}
+            </MainCarousel>
         </>
     );
 };
@@ -41,9 +38,9 @@ const ZoomableImage = ({ src, alt, onZoomDragToggle }) => {
 
     useEffect(() => {
         if (onZoomDragToggle) {
-          onZoomDragToggle(false); // Siempre avisa que arranca sin zoom
+            onZoomDragToggle(false); // Siempre avisa que arranca sin zoom
         }
-      }, []); // 👈 solo al montar      
+    }, [position]); // 👈 solo al montar      
 
     return (
         <div className="relative w-full h-full">
