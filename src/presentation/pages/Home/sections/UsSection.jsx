@@ -36,7 +36,7 @@ export const UsSection = () => {
   return (
     <div id='us' className='w-full bg-gradient-to-b from-purple-100 to-purple-200'>
       <Extend modifier='px-4 py-8 flex flex-col gap-4'>
-        <h3>Todo lo que buscas <span className='text-3xl text-purple-900'>¡LO TENEMOS AQUÍ!</span></h3>
+        <h3>TODO LO QUE BUSCAS <span className='text-3xl text-purple-900'>¡LO TENEMOS AQUÍ!</span></h3>
         <div className='grid grid-cols-1 gap-2 sm:grid-cols-2 md:grid-cols-3 rounde'>
           {
             products.map((product, index) => (

@@ -30,7 +30,7 @@ export const FindUsSection = () => {
     <div id='find' className='w-full bg-gradient-to-b from-teal-100 to-teal-200 text-center'>
       <Extend modifier='py-8 px-8 flex flex-col gap-4'>
         <div className='flex flex-col gap-2'>
-          <h3 className='text-center text-teal-900'>Ubícanos</h3>
+          <h3 className='text-center text-teal-900'>UBÍCANOS</h3>
           <p className='text-gray-900'>
             Nos ubicamos en Pasaje Sargento Tejada N° 149 Iquitos-Maynas-Loreto, entre Jirón Putumayo y Alfonso Navarro Cauper
           </p>

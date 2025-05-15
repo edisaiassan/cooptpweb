@@ -16,7 +16,7 @@ export const ContactUsSection = () => {
         <Extend id='contact'>
             <div className='md:grid md:grid-cols-2 items-center flex flex-col px-4 py-8 gap-4'>
                 <div className='flex flex-col justify-center gap-2'>
-                    <h3 className='text-primaryHard'>Contáctanos</h3>
+                    <h3 className='text-primaryHard'>CONTÁCTANOS</h3>
                     <p className='text-gray-900'>
                         Estamos a su entera disposición para atender cualquier consulta o requerimiento. Puede comunicarse con nosotros de manera activa a través de llamada telefónica o mensajes por WhatsApp a los siguientes números:
                     </p>

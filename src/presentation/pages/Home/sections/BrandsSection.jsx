@@ -14,6 +14,10 @@ export const BrandsSection = () => {
         '/brands/honor.png',
         '/brands/indurama.png',
         '/brands/epson.png',
+        '/brands/paraiso.jpg',
+        '/brands/bossko.webp',
+        '/brands/redmi.webp',
+        '/brands/iphone.png',
     ]
 
     return (
@@ -21,7 +25,7 @@ export const BrandsSection = () => {
         >
             <Extend modifier='px-4 py-8 text-white flex flex-col items-center justify-center gap-4'>
                 <h3 className='text-center text-black'>
-                    Marcas que <span className='text-3xl text-primaryHard'>CONFÍAN EN NOSOTROS</span>
+                    MARCAS QUE <span className='text-3xl text-primaryHard'>CONFÍAN EN NOSOTROS</span>
                 </h3>
                 <div className='bg-white w-full rounded-2xl text-black overflow-hidden'>
                     <ScrollArea className='min-w-full overflow-x-auto'>
