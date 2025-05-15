@@ -18,7 +18,7 @@ export const CarouselImage = ({ images, background = 'bg-primaryLite', zoom = tr
                 h="h-112"
                 w="w-full"
                 className={`${background} border-2 border-[#006F37] rounded-2xl overflow-hidden`}
-                draggable={false} // ✅ pasa el estado como prop
+                draggable={true} // ✅ pasa el estado como prop
             >
                 {images?.length > 0 ? images.map((image, index) => (
                     <img key={index} src={image} alt={`Slide ${index}`} className='h-full w-full object-contain' />
