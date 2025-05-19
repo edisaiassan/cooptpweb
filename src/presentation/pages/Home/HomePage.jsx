@@ -79,38 +79,38 @@ export const HomePage = () => {
                   duration={400}
                   offset={-56}
                   className='transition-transform duration-300 ease-in-out hover:scale-[95%] active:scale-[90%] cursor-pointer'
-                >Inicio</Link>
-                <a className='transition-transform duration-300 ease-in-out hover:scale-[95%] active:scale-[90%] cursor-pointer' href='' onClick={onGoProducts}>Productos</a>
+                >INICIO</Link>
+                <a className='transition-transform duration-300 ease-in-out hover:scale-[95%] active:scale-[90%] cursor-pointer' href='' onClick={onGoProducts}>PRODUCTOS</a>
                 <Link to='us'
                   smooth={true}
                   duration={400}
                   offset={-56}
                   className='transition-transform duration-300 ease-in-out hover:scale-[95%] active:scale-[90%] cursor-pointer'
-                >Nosotros</Link>
+                >NOSOTROS</Link>
                 <Link to='contact'
                   smooth={true}
                   duration={400}
                   offset={-56}
                   className='transition-transform duration-300 ease-in-out hover:scale-[95%] active:scale-[90%] cursor-pointer'
-                >Contáctanos</Link>
+                >CONTÁCTANOS</Link>
                 <Link to='find'
                   smooth={true}
                   duration={400}
                   offset={-56}
                   className='transition-transform duration-300 ease-in-out hover:scale-[95%] active:scale-[90%] cursor-pointer'
-                >Ubícanos</Link>
+                >UBÍCANOS</Link>
                 <Link to='advisor'
                   smooth={true}
                   duration={400}
                   offset={-56}
                   className='transition-transform duration-300 ease-in-out hover:scale-[95%] active:scale-[90%] cursor-pointer'
-                >Asesores</Link>
+                >ASESORES</Link>
                 <Link to='schedule'
                   smooth={true}
                   duration={400}
                   offset={-56}
                   className='transition-transform duration-300 ease-in-out hover:scale-[95%] active:scale-[90%] cursor-pointer'
-                >Horarios</Link>
+                >HORARIOS</Link>
               </div>
             }
             actions={

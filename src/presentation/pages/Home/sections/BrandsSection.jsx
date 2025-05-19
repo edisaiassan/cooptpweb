@@ -1,7 +1,5 @@
-import { ScrollBar } from '@/components/ui/scroll-area'
 import { Extend } from '@/presentation/global/components/breakpoints/Extend'
-import { ScrollArea } from '@radix-ui/react-scroll-area'
-import React from 'react'
+import { ScrollArea, ScrollBar } from '@/components/ui/scroll-area'
 
 export const BrandsSection = () => {
     const brands = [
@@ -44,7 +42,7 @@ export const BrandsSection = () => {
                             </div>
 
                         </ul>
-                        <ScrollBar orientation="horizontal" className='px-4' />
+                        <ScrollBar orientation='horizontal' />
                     </ScrollArea>
                 </div>
             </Extend>

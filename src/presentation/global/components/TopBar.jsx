@@ -28,7 +28,7 @@ export const TopBar = ({
                     <div className={`${flex} ${gap2} w-full ${itemsCenter} ${hTopBar} ${titlePosition}`}>
                         {title}
                     </div>
-                    <ScrollBar orientation='horizontal' />
+                    <ScrollBar orientation="horizontal" className='px-4' />
                 </ScrollArea>
                 {actions &&
                     <div className={`${flex} ${gap2} ${hFull} ${itemsCenter}`}>

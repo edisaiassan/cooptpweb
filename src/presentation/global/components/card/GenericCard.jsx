@@ -16,7 +16,7 @@ export const GenericCard = ({
             onClick={onClick}
         >
             <img src={image} alt='image'
-                className='w-full h-64 object-cover rounded-2xl'
+                className='w-full h-64 object-contain rounded-2xl'
             />
             <div className='pt-2 flex flex-col'>
                 {title && <h4 className='line-clamp-2'>{title}</h4>}

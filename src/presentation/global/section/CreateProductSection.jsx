@@ -371,7 +371,7 @@ export const CreateProductSection = ({
                                                         <MainButton
                                                             enabled={enabled}
                                                             leftIcon={<Icon path={file_present} />}
-                                                            onClick={() => handleImages({ maxImg: 4, type: 'multiple' })}
+                                                            onClick={() => handleImages({ maxImg: 10, type: 'multiple' })}
                                                         >
                                                             Selecciona tus imágenes
                                                         </MainButton>
@@ -388,9 +388,9 @@ export const CreateProductSection = ({
                                                 backgroundColor='bg-black'>
                                                 Eliminar todo
                                             </MainButton>
-                                            {productData.images.length < 4 && <IconButton
+                                            {productData.images.length < 10 && <IconButton
                                                 enabled={enabled}
-                                                path={add} onClick={() => handleImages({ maxImg: 4, type: 'multiple' })}
+                                                path={add} onClick={() => handleImages({ maxImg: 10, type: 'multiple' })}
                                                 background='bg-primary'
                                                 iconColor='fill-white'
                                             />}

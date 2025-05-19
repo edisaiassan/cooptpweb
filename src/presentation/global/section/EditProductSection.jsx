@@ -346,7 +346,7 @@ export const EditProductSection = ({
 
                                                         input.onchange = (e) => {
                                                             const files = Array.from(e.target.files)
-                                                            const remainingSlots = 4 - productDataState.images.length
+                                                            const remainingSlots = 10 - productDataState.images.length
 
                                                             const selectedFiles = files.slice(0, remainingSlots)
 
@@ -380,7 +380,9 @@ export const EditProductSection = ({
                                                 onClick={() => setProductData(prev => ({ ...prev, images: [] }))} backgroundColor='bg-black'
                                             >Eliminar todo
                                             </MainButton>
-                                            <IconButton
+                                            {
+                                                productDataState.images.length < 10 &&
+                                                <IconButton
                                                 enabled={enabled}
                                                 path={add}
                                                 onClick={() => {
@@ -391,7 +393,7 @@ export const EditProductSection = ({
 
                                                     input.onchange = (e) => {
                                                         const files = Array.from(e.target.files)
-                                                        const remainingSlots = 4 - productDataState.images.length
+                                                        const remainingSlots = 10 - productDataState.images.length
 
                                                         const selectedFiles = files.slice(0, remainingSlots)
 
@@ -410,7 +412,7 @@ export const EditProductSection = ({
                                                 }}
                                                 background='bg-primary'
                                                 iconColor='fill-white'
-                                            />
+                                            />}
                                         </div>
                                     )}
                                 </div>

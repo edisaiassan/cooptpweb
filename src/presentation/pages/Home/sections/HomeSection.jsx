@@ -22,7 +22,7 @@ export const HomeSection = () => {
                             LOS MEJORES PRODUCTOS A <span className='text-3xl text-primary'>¡LOS MEJORES PRECIOS!</span>
                         </h3>
                         <p>
-                            Somos una cooperativa comprometida con ofrecer tecnología de calidad al por menor, a través de convenios estratégicos con instituciones como la UGEL y la Policía Nacional del Perú (PNP). Nos especializamos en la venta de equipos informáticos, motores acuáticos y más, brindando soluciones innovadoras y accesibles para satisfacer las necesidades de nuestros clientes. Con nosotros, encuentras lo que necesitas, cuando lo necesitas. ¡Tu aliado tecnológico confiable!
+                            Somos una cooperativa comprometida con ofrecer tecnología de calidad al por menor, a través de convenios estratégicos con instituciones como UGEL y la Policía Nacional del Perú (PNP). Nos especializamos en la venta de equipos informáticos, motores acuáticos y más, brindando soluciones innovadoras y accesibles para satisfacer las necesidades de nuestros clientes. Con nosotros, encuentras lo que necesitas, cuando lo necesitas. ¡Tu aliado tecnológico confiable!
                         </p>
                         <div className='flex justify-center md:justify-start'>
                             <MainButton onClick={onGoProduct}>Ver todos los productos</MainButton>

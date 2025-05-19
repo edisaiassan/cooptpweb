@@ -4,7 +4,7 @@ import Lottie from 'lottie-react'
 
 export const ScheduleSection = () => {
 
-  const regularSchedule = '8:30AM - 1:30PM'
+  const regularSchedule = '8:30AM - 1:30PM\n3:30PM - 6:30PM'
 
   return (
     <div className='bg-gradient-to-b from-blue-100 to-blue-200'>
